@@ -20,22 +20,18 @@ class TravelGuide extends Component {
     this.getTravelPlaces()
   }
 
-  renderFormattedData = data => ({
-    id: data.id,
-    name: data.name,
-    imageUrl: data.image_url,
-    description: data.description,
-  })
-
   getTravelPlaces = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const apiUrl = 'https://apis.ccbp.in/tg/packages'
     const response = await fetch(apiUrl)
     if (response.ok === true) {
       const fetchedData = await response.json()
-      const updatedList = fetchedData.packages.map(each =>
-        this.renderFormattedData(each),
-      )
+      const updatedList = fetchedData.packages.map(each => ({
+        id: each.id,
+        name: each.name,
+        imageUrl: each.image_url,
+        description: each.description,
+      }))
       console.log(updatedList)
       this.setState({
         placesList: updatedList,
