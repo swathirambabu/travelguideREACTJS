@@ -2,7 +2,7 @@ import './index.css'
 
 const TravelPlacesList = props => {
   const {eachPlace} = props
-  const {name, description, imageUrl} = eachPlace
+  const {imageUrl, name, description} = eachPlace
 
   return (
     <li className="place-container">

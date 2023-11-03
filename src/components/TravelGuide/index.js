@@ -41,7 +41,7 @@ class TravelGuide extends Component {
   }
 
   renderLoader = () => (
-    <div data-testid="loader">
+    <div data-testid="loader" className="position">
       <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
     </div>
   )
